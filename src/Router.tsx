@@ -30,7 +30,7 @@ const Activity = lazy(() => import(/* webpackChunkName: 'activity' */ './pages/A
 const Stats = lazy(() => import(/* webpackChunkName: 'stats' */ './pages/Stats'))
 const PlayerStats = lazy(() => import(/* webpackChunkName: 'player-stats' */ './pages/PlayerStats'))
 const AcceptInvite = lazy(() => import(/* webpackChunkName: 'accept-invite' */ './pages/AcceptInvite'))
-const Organisation = lazy(() => import(/* webpackChunkName: 'organisation' */ './pages/Organisation'))
+const Organization = lazy(() => import(/* webpackChunkName: 'organization' */ './pages/Organization'))
 const Billing = lazy(() => import(/* webpackChunkName: 'billing' */ './pages/Billing'))
 const Integrations = lazy(() => import(/* webpackChunkName: 'integrations' */ './pages/Integrations'))
 const Groups = lazy(() => import(/* webpackChunkName: 'groups' */ './pages/Groups'))
@@ -89,7 +89,7 @@ function Router({
               <Route path={routes.dashboard} element={<Dashboard />} />
               <Route path={routes.account} element={<Account />} />
               <Route path={routes.confirmPassword} element={<ConfirmPassword />} />
-              {canViewPage(user, routes.organisation) && <Route path={routes.organisation} element={<Organisation />} />}
+              {canViewPage(user, routes.organization) && <Route path={routes.organization} element={<Organization />} />}
               {canViewPage(user, routes.billing) && <Route path={routes.billing} element={<Billing />} />}
 
               {activeGame &&

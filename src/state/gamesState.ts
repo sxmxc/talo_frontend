@@ -6,7 +6,7 @@ const gamesState = selector<Game[]>({
   key: 'games',
   get: ({ get }) => {
     const user = get(userState)
-    return user?.organisation.games ?? []
+    return user?.organization.games ?? []
   }
 })
 

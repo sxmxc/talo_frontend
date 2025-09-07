@@ -12,7 +12,7 @@ describe('<SecondaryNav />', () => {
         <SecondaryNav
           routes={[
             { title: 'Dashboard', to: routes.dashboard },
-            { title: 'Organisation', to: routes.organisation },
+            { title: 'Organization', to: routes.organization },
             { title: 'Stats', to: routes.stats },
             { title: 'Leaderboards', to: routes.leaderboards }
           ]}
@@ -20,7 +20,7 @@ describe('<SecondaryNav />', () => {
       </KitchenSink>
     )
 
-    expect(screen.queryByText('Organisation')).not.toBeInTheDocument()
+    expect(screen.queryByText('Organization')).not.toBeInTheDocument()
   })
 
   it('should not render if there are less than 2 routes', () => {

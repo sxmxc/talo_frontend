@@ -65,7 +65,7 @@ describe('<NavBar />', () => {
     }
 
     const user = {
-      organisation: {
+      organization: {
         games: [
           game
         ]

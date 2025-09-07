@@ -33,7 +33,7 @@ describe('<GlobalBanners />', () => {
   it('should render the payment required banner when the plan status is not active', () => {
     const userValue = {
       type: UserType.OWNER,
-      organisation: {
+      organization: {
         pricingPlan: {
           status: 'incomplete'
         }
@@ -52,7 +52,7 @@ describe('<GlobalBanners />', () => {
   it('should not render the payment required banner when the plan status is active', () => {
     const userValue = {
       type: UserType.OWNER,
-      organisation: {
+      organization: {
         pricingPlan: {
           status: 'active'
         }

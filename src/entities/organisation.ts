@@ -4,14 +4,14 @@ import { pricingPlanSchema } from './pricingPlan'
 
 export const statusSchema = z.enum(['active', 'canceled', 'incomplete', 'incomplete_expired', 'past_due', 'paused', 'trialing', 'unpaid'])
 
-export const organisationPricingPlanSchema = z.object({
+export const organizationPricingPlanSchema = z.object({
   pricingPlan: pricingPlanSchema,
   status: statusSchema,
   endDate: z.string().datetime().nullable(),
   canViewBillingPortal: z.boolean()
 })
 
-export const organisationSchema = z.object({
+export const organizationSchema = z.object({
   id: z.number(),
   name: z.string(),
   games: z.array(gameSchema),
@@ -20,4 +20,4 @@ export const organisationSchema = z.object({
   })
 })
 
-export type Organisation = z.infer<typeof organisationSchema>
+export type Organization = z.infer<typeof organizationSchema>

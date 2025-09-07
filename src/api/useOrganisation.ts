@@ -6,21 +6,21 @@ import { gameSchema } from '../entities/game'
 import { userSchema } from '../entities/user'
 import { inviteSchema } from '../entities/invite'
 
-export const currentOrganisationSchema = z.object({
+export const currentOrganizationSchema = z.object({
   games: z.array(gameSchema),
   members: z.array(userSchema),
   pendingInvites: z.array(inviteSchema)
 })
 
-export default function useOrganisation() {
+export default function useOrganization() {
   const fetcher = async ([url]: [string]) => {
-    const res = await makeValidatedGetRequest(url, currentOrganisationSchema)
+    const res = await makeValidatedGetRequest(url, currentOrganizationSchema)
 
     return res
   }
 
   const { data, error, mutate } = useSWR(
-    ['/organisations/current'],
+    ['/organizations/current'],
     fetcher
   )
 

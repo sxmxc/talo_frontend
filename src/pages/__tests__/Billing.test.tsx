@@ -40,7 +40,7 @@ describe('<Billing />', () => {
 
   const userValue = {
     type: UserType.OWNER,
-    organisation: {
+    organization: {
       pricingPlan: {
         status: 'active'
       }
@@ -122,7 +122,7 @@ describe('<Billing />', () => {
   }
 
   it('should render the current plan and the other returned plans', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan: orgPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan: orgPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -138,7 +138,7 @@ describe('<Billing />', () => {
   })
 
   it('should correctly highlight the current plan', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan: orgPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan: orgPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -160,7 +160,7 @@ describe('<Billing />', () => {
       endDate: new Date(2022, 2, 2)
     }
 
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -179,7 +179,7 @@ describe('<Billing />', () => {
       canViewBillingPortal: false
     }
 
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -193,8 +193,8 @@ describe('<Billing />', () => {
     expect(screen.queryByText('Billing details')).not.toBeInTheDocument()
   })
 
-  it('should handle organisation plan errors', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').networkErrorOnce()
+  it('should handle organization plan errors', async () => {
+    axiosMock.onGet('http://talo.api/billing/organization-plan').networkErrorOnce()
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -208,7 +208,7 @@ describe('<Billing />', () => {
   })
 
   it('should handle pricing plan errors', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan: orgPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan: orgPlan })
     axiosMock.onGet('http://talo.api/billing/plans').networkErrorOnce()
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -225,8 +225,8 @@ describe('<Billing />', () => {
     }
   })
 
-  it('should handle pricing plan and organisation plan errors', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').networkErrorOnce()
+  it('should handle pricing plan and organization plan errors', async () => {
+    axiosMock.onGet('http://talo.api/billing/organization-plan').networkErrorOnce()
     axiosMock.onGet('http://talo.api/billing/plans').networkErrorOnce()
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -240,7 +240,7 @@ describe('<Billing />', () => {
     expect(screen.queryByText('Other plans')).not.toBeInTheDocument()
   })
 
-  it('should not render other plans if the organisation plan is hidden', async () => {
+  it('should not render other plans if the organization plan is hidden', async () => {
     const pricingPlan = {
       ...orgPlan,
       pricingPlan: {
@@ -249,7 +249,7 @@ describe('<Billing />', () => {
       }
     }
 
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -264,7 +264,7 @@ describe('<Billing />', () => {
   })
 
   it('should render the custom plan', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan: orgPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan: orgPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 
@@ -278,7 +278,7 @@ describe('<Billing />', () => {
   })
 
   it('should switch between monthly and yearly pricing', async () => {
-    axiosMock.onGet('http://talo.api/billing/organisation-plan').replyOnce(200, { pricingPlan: orgPlan })
+    axiosMock.onGet('http://talo.api/billing/organization-plan').replyOnce(200, { pricingPlan: orgPlan })
     axiosMock.onGet('http://talo.api/billing/plans').replyOnce(200, { pricingPlans })
     axiosMock.onGet('http://talo.api/billing/usage').replyOnce(200, { usage })
 

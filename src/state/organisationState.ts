@@ -1,13 +1,13 @@
 import { selector } from 'recoil'
 import userState, { AuthedUser } from './userState'
-import { Organisation } from '../entities/organisation'
+import { Organization } from '../entities/organization'
 
-const organisationState = selector<Organisation>({
-  key: 'organisation',
+const organizationState = selector<Organization>({
+  key: 'organization',
   get: ({ get }) => {
     const user = get(userState) as AuthedUser
-    return user.organisation
+    return user.organization
   }
 })
 
-export default organisationState
+export default organizationState

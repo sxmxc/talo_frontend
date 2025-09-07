@@ -5,8 +5,8 @@ import Page from '../components/Page'
 import DateCell from '../components/tables/cells/DateCell'
 import TableBody from '../components/tables/TableBody'
 import TableCell from '../components/tables/TableCell'
-import organisationState from '../state/organisationState'
-import useOrganisation from '../api/useOrganisation'
+import organizationState from '../state/organizationState'
+import useOrganization from '../api/useOrganization'
 import Button from '../components/Button'
 import { IconCheck, IconPencil, IconPlus, IconX } from '@tabler/icons-react'
 import ErrorMessage, { TaloError } from '../components/ErrorMessage'
@@ -24,9 +24,9 @@ import updateGame from '../api/updateGame'
 import buildError from '../utils/buildError'
 import activeGameState, { SelectedActiveGameState } from '../state/activeGameState'
 
-function Organisation() {
-  const organisation = useRecoilValue(organisationState)
-  const { games, members, pendingInvites, loading, error, mutate } = useOrganisation()
+function Organization() {
+  const organization = useRecoilValue(organizationState)
+  const { games, members, pendingInvites, loading, error, mutate } = useOrganization()
   const [showModal, setShowModal] = useState(false)
   const user = useRecoilValue(userState) as AuthedUser
 
@@ -62,8 +62,8 @@ function Organisation() {
       // game switcher dropdown
       setUser({
         ...user,
-        organisation: {
-          ...user.organisation,
+        organization: {
+          ...user.organization,
           games: updatedOrg!.games
         }
       })
@@ -88,7 +88,7 @@ function Organisation() {
 
   return (
     <Page
-      title={organisation.name}
+      title={organization.name}
       isLoading={loading}
       secondaryNav={<SecondaryNav routes={secondaryNavRoutes} />}
     >
@@ -218,4 +218,4 @@ function Organisation() {
   )
 }
 
-export default Organisation
+export default Organization

@@ -14,7 +14,7 @@ export default function canViewPage(user: User | null, route: string) {
       return user.type === UserType.ADMIN
     case routes.dataExports:
       return user.type === UserType.ADMIN && user.emailConfirmed
-    case routes.organisation:
+    case routes.organization:
       return user.type === UserType.ADMIN
     case routes.billing:
     case routes.gameSettings:

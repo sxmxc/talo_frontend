@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import routes from '../constants/routes'
-import organisationState from '../state/organisationState'
+import organizationState from '../state/organizationState'
 import userState, { AuthedUser } from '../state/userState'
 import ConfirmEmailBanner from './ConfirmEmailBanner'
 import PaymentRequiredBanner from './billing/PaymentRequiredBanner'
@@ -19,7 +19,7 @@ export default function GlobalBanners() {
   const [showBanners, setShowBanners] = useState(false)
 
   const user = useRecoilValue(userState) as AuthedUser
-  const organisation = useRecoilValue(organisationState)
+  const organization = useRecoilValue(organizationState)
   const justConfirmedEmail = useRecoilValue(justConfirmedEmailState)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function GlobalBanners() {
   }, [location.pathname])
 
   const showConfirmEmailBanner = !user.emailConfirmed || justConfirmedEmail
-  const showPaymentRequiredBanner = user.type === UserType.OWNER && organisation.pricingPlan.status !== 'active'
+  const showPaymentRequiredBanner = user.type === UserType.OWNER && organization.pricingPlan.status !== 'active'
 
   const { usage, loading: usageLoading, error: usageError } = usePricingPlanUsage(showBanners && user.type === UserType.OWNER)
   const showUsageWarningBanner = !usageLoading && !usageError && usage.used >= usage.limit * 0.75

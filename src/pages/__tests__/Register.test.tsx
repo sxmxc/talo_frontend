@@ -54,7 +54,7 @@ describe('<Register />', () => {
 
     await waitFor(() => {
       expect(JSON.parse(postMock.mock.calls[0][0].data)).toStrictEqual({
-        organisationName: 'Sleepy Studios',
+        organizationName: 'Sleepy Studios',
         username: 'Talo',
         email: 'hello@trytalo.com',
         password: 'p@ssw0rd'
@@ -93,7 +93,7 @@ describe('<Register />', () => {
     }
 
     const invite = {
-      organisation: {
+      organization: {
         name: 'Sleepy Studios'
       },
       token: 'abc123',
@@ -124,7 +124,7 @@ describe('<Register />', () => {
 
     expect(screen.getByText('Sign up')).toBeDisabled()
 
-    expect(screen.getByText(invite.organisation.name)).toBeInTheDocument()
+    expect(screen.getByText(invite.organization.name)).toBeInTheDocument()
     expect(screen.getByText('has invited you to join them on Talo')).toBeInTheDocument()
 
     const { type, click } = userEvent.setup()

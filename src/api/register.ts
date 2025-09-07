@@ -6,7 +6,7 @@ import { userSchema } from '../entities/user'
 export type Data = {
   email: string
   password: string
-  organisationName?: string
+  organizationName?: string
   username: string
   inviteToken?: string
 }

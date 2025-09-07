@@ -2,19 +2,19 @@ import useSWR from 'swr'
 import buildError from '../utils/buildError'
 import makeValidatedGetRequest from './makeValidatedGetRequest'
 import { z } from 'zod'
-import { organisationPricingPlanSchema } from '../entities/organisation'
+import { organizationPricingPlanSchema } from '../entities/organization'
 
-export default function useOrganisationPricingPlan() {
+export default function useOrganizationPricingPlan() {
   const fetcher = async ([url]: [string]) => {
     const res = await makeValidatedGetRequest(url, z.object({
-      pricingPlan: organisationPricingPlanSchema
+      pricingPlan: organizationPricingPlanSchema
     }))
 
     return res
   }
 
   const { data, error } = useSWR(
-    ['/billing/organisation-plan'],
+    ['/billing/organization-plan'],
     fetcher
   )
 

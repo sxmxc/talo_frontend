@@ -2,7 +2,7 @@
 
 describe('Billing', () => {
   function stubBillingCalls() {
-    cy.intercept('GET', 'http://talo.api/billing/organisation-plan', {
+    cy.intercept('GET', 'http://talo.api/billing/organization-plan', {
       statusCode: 200,
       fixture: 'responses/billing/free-plan'
     })

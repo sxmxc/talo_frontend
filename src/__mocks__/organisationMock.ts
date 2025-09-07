@@ -1,6 +1,6 @@
-import { Organisation, statusSchema } from '../entities/organisation'
+import { Organization, statusSchema } from '../entities/organization'
 
-export default function organisationMock(extra: Partial<Organisation> = {}): Organisation {
+export default function organizationMock(extra: Partial<Organization> = {}): Organization {
   return {
     id: 1,
     name: 'Sleepy Studios',

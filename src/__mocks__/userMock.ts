@@ -1,5 +1,5 @@
 import { User, UserType } from '../entities/user'
-import organisationMock from './organisationMock'
+import organizationMock from './organizationMock'
 
 export default function userMock(extra: Partial<User> = {}): User {
   return {
@@ -8,7 +8,7 @@ export default function userMock(extra: Partial<User> = {}): User {
     username: 'dev',
     lastSeenAt: new Date().toISOString(),
     emailConfirmed: false,
-    organisation: organisationMock(),
+    organization: organizationMock(),
     type: UserType.DEV,
     has2fa: false,
     createdAt: new Date().toISOString(),
