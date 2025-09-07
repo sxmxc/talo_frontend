@@ -36,7 +36,7 @@ export default function Demo() {
       <form className={clsx('text-white space-y-8', unauthedContainerStyle)}>
         <h1 className='text-4xl font-bold'>Browse the demo</h1>
         <p>
-          You&apos;ll get to the read-only demo organisation for 1 hour. Some features are restricted in the demo environment but trust us, they work!
+          You&apos;ll get to the read-only demo organization for 1 hour. Some features are restricted in the demo environment but trust us, they work!
         </p>
 
         {error && <ErrorMessage error={error} />}

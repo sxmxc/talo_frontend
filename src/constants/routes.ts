@@ -21,7 +21,7 @@ export default {
   leaderboards: '/leaderboards',
   leaderboardEntries: '/leaderboards/:internalName',
   login: '/',
-  organisation: '/organisation',
+  organization: '/organization',
   players: '/players',
   playerEvents: '/players/:id/events',
   playerLeaderboardEntries: '/players/:id/leaderboard-entries',

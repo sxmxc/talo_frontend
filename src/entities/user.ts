@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { organisationSchema } from './organisation'
+import { organizationSchema } from './organization'
 
 export enum UserType {
   OWNER,
@@ -14,7 +14,7 @@ export const userSchema = z.object({
   username: z.string(),
   lastSeenAt: z.string().datetime(),
   emailConfirmed: z.boolean(),
-  organisation: organisationSchema,
+  organization: organizationSchema,
   type: z.nativeEnum(UserType),
   has2fa: z.boolean(),
   createdAt: z.string().datetime()

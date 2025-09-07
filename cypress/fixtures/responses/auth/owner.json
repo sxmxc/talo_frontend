@@ -4,7 +4,7 @@
     "id": 1,
     "type": 0,
     "username": "Owner",
-    "organisation": {
+    "organization": {
       "games": [
         {
           "id": 1,

@@ -32,9 +32,9 @@ export default function NewGame({ modalState }: NewGameProps) {
       const { game } = await createGame(name)
       setUser({
         ...user,
-        organisation: {
-          ...user.organisation,
-          games: [...user.organisation.games, game]
+        organization: {
+          ...user.organization,
+          games: [...user.organization.games, game]
         }
       })
       setActiveGame(game)

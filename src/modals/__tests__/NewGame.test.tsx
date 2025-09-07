@@ -16,7 +16,7 @@ describe('<NewGame />', () => {
     const userChangeMock = vi.fn()
 
     render(
-      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organisation: { games: [] } } }]}>
+      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organization: { games: [] } } }]}>
         <NewGame modalState={[true, closeMock]} />
       </KitchenSink>
     )
@@ -30,7 +30,7 @@ describe('<NewGame />', () => {
     })
 
     expect(userChangeMock).toHaveBeenCalledWith({
-      organisation: {
+      organization: {
         games: [{ id: 1, name: 'Shattered' }]
       }
     })
@@ -43,7 +43,7 @@ describe('<NewGame />', () => {
     const userChangeMock = vi.fn()
 
     render(
-      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organisation: { games: [] } } }]}>
+      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organization: { games: [] } } }]}>
         <NewGame modalState={[true, closeMock]} />
       </KitchenSink>
     )
@@ -62,7 +62,7 @@ describe('<NewGame />', () => {
     const userChangeMock = vi.fn()
 
     render(
-      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organisation: { games: [] } } }]}>
+      <KitchenSink states={[{ node: userState, onChange: userChangeMock, initialValue: { organization: { games: [] } } }]}>
         <NewGame modalState={[true, closeMock]} />
       </KitchenSink>
     )

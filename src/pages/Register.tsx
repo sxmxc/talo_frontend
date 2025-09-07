@@ -20,18 +20,18 @@ import userState from '../state/userState'
 import { z } from 'zod'
 
 const validationSchema = z.object({
-  organisationName: z.string().optional(),
+  organizationName: z.string().optional(),
   username: z.string().min(1, { message: 'Username is required' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
   password: z.string().min(1, { message: 'Password is required' }),
   termsAccepted: z.boolean().refine((val) => val === true, { message: 'Terms must be accepted' }),
   hasInvite: z.boolean()
-}).superRefine(({ hasInvite, organisationName }, ctx) => {
-  if (!hasInvite && !organisationName?.trim()) {
+}).superRefine(({ hasInvite, organizationName }, ctx) => {
+  if (!hasInvite && !organizationName?.trim()) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       message: 'Team or studio name is required',
-      path: ['organisationName']
+      path: ['organizationName']
     })
     return false
   }
@@ -57,12 +57,12 @@ export default function Register() {
     mode: 'onBlur'
   })
 
-  const onRegisterClick = async ({ email, password, organisationName, username }: FormValues) => {
+  const onRegisterClick = async ({ email, password, organizationName, username }: FormValues) => {
     setAPIError(null)
     setLoading(true)
 
     try {
-      const { accessToken, user } = await registerUser({ email, password, organisationName, username, inviteToken: location.state?.invite.token })
+      const { accessToken, user } = await registerUser({ email, password, organizationName, username, inviteToken: location.state?.invite.token })
       AuthService.setToken(accessToken)
       setUser(user)
 
@@ -82,7 +82,7 @@ export default function Register() {
 
         {location.state?.invite &&
           <p>
-            <span role='img' aria-label='Success'>🎉</span> <span className='font-semibold'>{location.state.invite.organisation.name}</span> has invited you to join them on Talo
+            <span role='img' aria-label='Success'>🎉</span> <span className='font-semibold'>{location.state.invite.organization.name}</span> has invited you to join them on Talo
           </p>
         }
 
@@ -92,8 +92,8 @@ export default function Register() {
             label='Team or studio name'
             placeholder={'Your team or studio\'s name'}
             type='text'
-            inputExtra={{ ...register('organisationName') }}
-            errors={[errors.organisationName?.message]}
+            inputExtra={{ ...register('organizationName') }}
+            errors={[errors.organizationName?.message]}
           />
         }
 

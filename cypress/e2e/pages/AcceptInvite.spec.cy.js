@@ -8,7 +8,7 @@ describe('AcceptInvite', () => {
         invite: {
           id: 1,
           email: 'dev@trytalo.com',
-          organisation: {
+          organization: {
             name: 'Sleepy Studios'
           },
           invitedBy: 'Owner',

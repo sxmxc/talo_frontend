@@ -4,7 +4,7 @@ import ErrorMessage from '../components/ErrorMessage'
 import SecondaryNav from '../components/SecondaryNav'
 import { secondaryNavRoutes } from '../constants/secondaryNavRoutes'
 import usePricingPlans from '../api/usePricingPlans'
-import useOrganisationPricingPlan from '../api/useOrganisationPricingPlan'
+import useOrganizationPricingPlan from '../api/useOrganizationPricingPlan'
 import Toggle from '../components/toggles/Toggle'
 import PricingPlanTile from '../components/billing/PricingPlanTile'
 import BillingUsageTile from '../components/billing/BillingUsageTile'
@@ -17,7 +17,7 @@ import SecondaryTitle from '../components/SecondaryTitle'
 import usePricingPlanUsage from '../api/usePricingPlanUsage'
 
 export default function Billing() {
-  const { plan: orgPlan, loading: orgPlanLoading, error: orgPlanError } = useOrganisationPricingPlan()
+  const { plan: orgPlan, loading: orgPlanLoading, error: orgPlanError } = useOrganizationPricingPlan()
   const { plans, loading: allPlansLoading, error: allPlansError } = usePricingPlans()
   const { usage, loading: usageLoading, error: usageError } = usePricingPlanUsage()
 

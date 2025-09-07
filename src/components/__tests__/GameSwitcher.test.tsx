@@ -38,9 +38,9 @@ describe('<GameSwitcher />', () => {
     expect(screen.getByText('Crawle')).toBeInTheDocument()
   })
 
-  it('should render all the organisation\'s games', async () => {
+  it('should render all the organization\'s games', async () => {
     const user = {
-      organisation: {
+      organization: {
         games: [
           { id: 1, name: 'Crawle' },
           { id: 2, name: 'Superstatic' },
@@ -61,14 +61,14 @@ describe('<GameSwitcher />', () => {
     await userEvent.click(screen.getByLabelText('Switch games or create a new one'))
     const list = screen.getByRole('list')
 
-    for (const game of user.organisation.games) {
+    for (const game of user.organization.games) {
       expect(within(list).getByText(game.name)).toBeInTheDocument()
     }
   })
 
   it('should render be able to switch games', async () => {
     const user = {
-      organisation: {
+      organization: {
         games: [
           { id: 1, name: 'Crawle' },
           { id: 2, name: 'Superstatic' },
@@ -90,16 +90,16 @@ describe('<GameSwitcher />', () => {
 
     await userEvent.click(screen.getByLabelText('Switch games or create a new one'))
 
-    await userEvent.click(screen.getByText(user.organisation.games[1].name))
+    await userEvent.click(screen.getByText(user.organization.games[1].name))
 
     await waitFor(() => {
-      expect(switchMock).toHaveBeenCalledWith(user.organisation.games[1])
+      expect(switchMock).toHaveBeenCalledWith(user.organization.games[1])
     })
   })
 
   it('should open the new game modal from the dropdown', async () => {
     const user = {
-      organisation: {
+      organization: {
         games: [
           { id: 1, name: 'Crawle' },
           { id: 2, name: 'Superstatic' },
@@ -127,7 +127,7 @@ describe('<GameSwitcher />', () => {
     const main = document.createElement('main')
 
     const user = {
-      organisation: {
+      organization: {
         games: [
           { id: 1, name: 'Crawle' },
           { id: 2, name: 'Superstatic' },

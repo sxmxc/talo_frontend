@@ -11,7 +11,7 @@ import Select from '../components/Select'
 import { UserType } from '../entities/user'
 import { KeyedMutator } from 'swr'
 import { z } from 'zod'
-import { currentOrganisationSchema } from '../api/useOrganisation'
+import { currentOrganizationSchema } from '../api/useOrganization'
 
 const validationSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
@@ -31,7 +31,7 @@ const userTypeOptions = [
 
 type NewInviteProps = {
   modalState: [boolean, Dispatch<React.SetStateAction<boolean>>]
-  mutate: KeyedMutator<z.infer<typeof currentOrganisationSchema>>
+  mutate: KeyedMutator<z.infer<typeof currentOrganizationSchema>>
 }
 
 export default function NewInvite({
@@ -61,7 +61,7 @@ export default function NewInvite({
 
       mutate((data) => {
         if (!data) {
-          throw new Error('Current organisation data not set')
+          throw new Error('Current organization data not set')
         }
 
         return {
